@@ -1,0 +1,206 @@
+[
+  {
+    "case": "High-risk churner correctly flagged",
+    "actual_churn": "Yes",
+    "probability": 0.8992,
+    "predicted_label": "Yes",
+    "customer": {
+      "gender": "Male",
+      "Partner": "Yes",
+      "Dependents": "No",
+      "PhoneService": "Yes",
+      "MultipleLines": "Yes",
+      "InternetService": "Fiber optic",
+      "OnlineSecurity": "No",
+      "OnlineBackup": "No",
+      "DeviceProtection": "No",
+      "TechSupport": "No",
+      "StreamingTV": "Yes",
+      "StreamingMovies": "Yes",
+      "Contract": "Month-to-month",
+      "PaperlessBilling": "Yes",
+      "PaymentMethod": "Electronic check",
+      "SeniorCitizen": 1,
+      "tenure": 1,
+      "MonthlyCharges": 95.1,
+      "TotalCharges": 95.1
+    },
+    "drivers": [
+      {
+        "feature": "Monthly charges relative to tenure",
+        "value": "47.55",
+        "impact": 1.2668,
+        "direction": "increases risk",
+        "explanation": "Monthly charges relative to tenure (47.55) raises the predicted churn risk."
+      },
+      {
+        "feature": "Month-to-month contract",
+        "value": "yes",
+        "impact": 0.6477,
+        "direction": "increases risk",
+        "explanation": "Month-to-month contract (yes) raises the predicted churn risk."
+      },
+      {
+        "feature": "Internet service",
+        "value": "Fiber optic",
+        "impact": 0.1872,
+        "direction": "increases risk",
+        "explanation": "Internet service (Fiber optic) raises the predicted churn risk."
+      }
+    ],
+    "summary": "Monthly charges relative to tenure (47.55) raises the predicted churn risk. Month-to-month contract (yes) raises the predicted churn risk. Internet service (Fiber optic) raises the predicted churn risk."
+  },
+  {
+    "case": "Loyal customer correctly cleared",
+    "actual_churn": "No",
+    "probability": 0.0537,
+    "predicted_label": "No",
+    "customer": {
+      "gender": "Female",
+      "Partner": "Yes",
+      "Dependents": "Yes",
+      "PhoneService": "Yes",
+      "MultipleLines": "No",
+      "InternetService": "No",
+      "OnlineSecurity": "No internet service",
+      "OnlineBackup": "No internet service",
+      "DeviceProtection": "No internet service",
+      "TechSupport": "No internet service",
+      "StreamingTV": "No internet service",
+      "StreamingMovies": "No internet service",
+      "Contract": "Two year",
+      "PaperlessBilling": "No",
+      "PaymentMethod": "Bank transfer (automatic)",
+      "SeniorCitizen": 0,
+      "tenure": 72,
+      "MonthlyCharges": 19.55,
+      "TotalCharges": 1463.45
+    },
+    "drivers": [
+      {
+        "feature": "Monthly charges relative to tenure",
+        "value": "0.27",
+        "impact": -0.7783,
+        "direction": "decreases risk",
+        "explanation": "Monthly charges relative to tenure (0.27) lowers the predicted churn risk."
+      },
+      {
+        "feature": "Month-to-month contract",
+        "value": "no",
+        "impact": -0.757,
+        "direction": "decreases risk",
+        "explanation": "Month-to-month contract (no) lowers the predicted churn risk."
+      },
+      {
+        "feature": "Contract type",
+        "value": "Two year",
+        "impact": -0.4314,
+        "direction": "decreases risk",
+        "explanation": "Contract type (Two year) lowers the predicted churn risk."
+      }
+    ],
+    "summary": "Monthly charges relative to tenure (0.27) lowers the predicted churn risk. Month-to-month contract (no) lowers the predicted churn risk. Contract type (Two year) lowers the predicted churn risk."
+  },
+  {
+    "case": "Borderline customer close to the threshold",
+    "actual_churn": "No",
+    "probability": 0.1198,
+    "predicted_label": "No",
+    "customer": {
+      "gender": "Female",
+      "Partner": "No",
+      "Dependents": "No",
+      "PhoneService": "Yes",
+      "MultipleLines": "Yes",
+      "InternetService": "DSL",
+      "OnlineSecurity": "No",
+      "OnlineBackup": "No",
+      "DeviceProtection": "No",
+      "TechSupport": "No",
+      "StreamingTV": "No",
+      "StreamingMovies": "No",
+      "Contract": "Month-to-month",
+      "PaperlessBilling": "Yes",
+      "PaymentMethod": "Mailed check",
+      "SeniorCitizen": 0,
+      "tenure": 44,
+      "MonthlyCharges": 50.15,
+      "TotalCharges": 2139.1
+    },
+    "drivers": [
+      {
+        "feature": "Monthly charges relative to tenure",
+        "value": "1.11",
+        "impact": -0.865,
+        "direction": "decreases risk",
+        "explanation": "Monthly charges relative to tenure (1.11) lowers the predicted churn risk."
+      },
+      {
+        "feature": "Month-to-month contract",
+        "value": "yes",
+        "impact": 0.3981,
+        "direction": "increases risk",
+        "explanation": "Month-to-month contract (yes) raises the predicted churn risk."
+      },
+      {
+        "feature": "Internet service",
+        "value": "DSL",
+        "impact": -0.227,
+        "direction": "decreases risk",
+        "explanation": "Internet service (DSL) lowers the predicted churn risk."
+      }
+    ],
+    "summary": "Monthly charges relative to tenure (1.11) lowers the predicted churn risk. Month-to-month contract (yes) raises the predicted churn risk. Internet service (DSL) lowers the predicted churn risk."
+  },
+  {
+    "case": "Hard case: churner the model missed",
+    "actual_churn": "Yes",
+    "probability": 0.0543,
+    "predicted_label": "No",
+    "customer": {
+      "gender": "Female",
+      "Partner": "Yes",
+      "Dependents": "Yes",
+      "PhoneService": "Yes",
+      "MultipleLines": "Yes",
+      "InternetService": "No",
+      "OnlineSecurity": "No internet service",
+      "OnlineBackup": "No internet service",
+      "DeviceProtection": "No internet service",
+      "TechSupport": "No internet service",
+      "StreamingTV": "No internet service",
+      "StreamingMovies": "No internet service",
+      "Contract": "Two year",
+      "PaperlessBilling": "Yes",
+      "PaymentMethod": "Mailed check",
+      "SeniorCitizen": 0,
+      "tenure": 33,
+      "MonthlyCharges": 24.5,
+      "TotalCharges": 740.3
+    },
+    "drivers": [
+      {
+        "feature": "Monthly charges relative to tenure",
+        "value": "0.72",
+        "impact": -0.9303,
+        "direction": "decreases risk",
+        "explanation": "Monthly charges relative to tenure (0.72) lowers the predicted churn risk."
+      },
+      {
+        "feature": "Month-to-month contract",
+        "value": "no",
+        "impact": -0.7574,
+        "direction": "decreases risk",
+        "explanation": "Month-to-month contract (no) lowers the predicted churn risk."
+      },
+      {
+        "feature": "Contract type",
+        "value": "Two year",
+        "impact": -0.466,
+        "direction": "decreases risk",
+        "explanation": "Contract type (Two year) lowers the predicted churn risk."
+      }
+    ],
+    "summary": "Monthly charges relative to tenure (0.72) lowers the predicted churn risk. Month-to-month contract (no) lowers the predicted churn risk. Contract type (Two year) lowers the predicted churn risk."
+  }
+]

@@ -1,0 +1,26 @@
+feature,source,mean_abs_contribution
+Month-to-month contract,contract_risk,0.6031588
+Monthly charges relative to tenure,charges_per_tenure,0.5631956
+Online security,OnlineSecurity,0.19176383
+Monthly charges,MonthlyCharges,0.17358078
+Tech support,TechSupport,0.1639266
+Internet service,InternetService,0.16327262
+Contract type,Contract,0.1498624
+Payment method,PaymentMethod,0.14322183
+Paperless billing,PaperlessBilling,0.11903034
+Multiple lines,MultipleLines,0.10419348
+Online backup,OnlineBackup,0.061242297
+Tenure,tenure,0.049654193
+Total charges,TotalCharges,0.045281276
+Senior citizen,SeniorCitizen,0.04442754
+Streaming movies,StreamingMovies,0.042933304
+Has dependents,Dependents,0.028214261
+Phone service,PhoneService,0.023737958
+Gender,gender,0.015784811
+Streaming TV,StreamingTV,0.015609798
+Automatic payment,auto_pay,0.008057291
+Number of subscribed services,total_services,0.007983088
+Device protection,DeviceProtection,0.00749504
+Has partner,Partner,0.0029210872
+Tenure group (months),tenure_bucket,0.0015678809
+Online security plus tech support,security_support,0.0012149336

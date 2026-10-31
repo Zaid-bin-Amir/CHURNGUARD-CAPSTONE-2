@@ -1,0 +1,36 @@
+{
+  "tag": "20261031_xgb-calibrated",
+  "joblib_file": "churn_pipeline_20261031_xgb-calibrated.joblib",
+  "skops_file": "churn_pipeline_20261031_xgb-calibrated.skops",
+  "threshold": 0.13,
+  "trained_at": "2026-10-31T16:17:47",
+  "versions": {
+    "python": "3.14.6",
+    "scikit-learn": "1.9.0",
+    "pandas": "3.0.3",
+    "numpy": "2.4.6",
+    "joblib": "1.5.3",
+    "xgboost": "3.4.1",
+    "shap": "0.54.1",
+    "skops": "0.16.0",
+    "mlflow": "3.17.2",
+    "lightgbm": "4.7.0"
+  },
+  "summary": {
+    "best_params": {
+      "colsample_bytree": 0.9868777594207296,
+      "gamma": 0.46554268086060846,
+      "learning_rate": 0.013118424770919554,
+      "max_depth": 4,
+      "min_child_weight": 7,
+      "n_estimators": 393,
+      "reg_lambda": 4.446862319918233,
+      "scale_pos_weight": 1.1161260317999944,
+      "subsample": 0.8430179407605753
+    },
+    "holdout_pr_auc": 0.658219587232213,
+    "holdout_roc_auc": 0.8481903433310083,
+    "holdout_recall": 0.8796791443850267,
+    "rows": 7043
+  }
+}

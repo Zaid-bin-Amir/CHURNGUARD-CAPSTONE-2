@@ -1,0 +1,946 @@
+{
+  "tag": "20261031_161824_retrain",
+  "trained_at": "2026-10-31T16:19:43",
+  "data": {
+    "rows": 7243,
+    "features": 19,
+    "churn_rate": 0.2654977219384233,
+    "train_rows": 5794,
+    "test_rows": 1449,
+    "train_churn_rate": 0.2654470141525716,
+    "test_churn_rate": 0.26570048309178745
+  },
+  "leakage": {
+    "target_in_inputs": false,
+    "derived_from_input_columns_only": true,
+    "fitted_inside_cross_validation": true,
+    "flag_threshold": 0.85,
+    "checks": [
+      {
+        "feature": "total_services",
+        "univariate_auc": 0.4982,
+        "strength": 0.5018,
+        "flagged": false
+      },
+      {
+        "feature": "charges_per_tenure",
+        "univariate_auc": 0.8014,
+        "strength": 0.8014,
+        "flagged": false
+      },
+      {
+        "feature": "contract_risk",
+        "univariate_auc": 0.7286,
+        "strength": 0.7286,
+        "flagged": false
+      },
+      {
+        "feature": "auto_pay",
+        "univariate_auc": 0.3767,
+        "strength": 0.6233,
+        "flagged": false
+      },
+      {
+        "feature": "security_support",
+        "univariate_auc": 0.4281,
+        "strength": 0.5719,
+        "flagged": false
+      },
+      {
+        "feature": "tenure_bucket",
+        "univariate_auc": 0.2832,
+        "strength": 0.7168,
+        "flagged": false
+      }
+    ],
+    "flagged_features": []
+  },
+  "comparison": [
+    {
+      "model": "Majority baseline",
+      "accuracy": 0.7345530436130249,
+      "accuracy_std": 0.00037372700892098317,
+      "precision": 0.0,
+      "precision_std": 0.0,
+      "recall": 0.0,
+      "recall_std": 0.0,
+      "f1": 0.0,
+      "f1_std": 0.0,
+      "roc_auc": 0.5,
+      "roc_auc_std": 0.0,
+      "pr_auc": 0.26544695638697524,
+      "pr_auc_std": 0.00037372700892100984,
+      "f2_at_best_threshold": 0.0,
+      "best_threshold": 0.05
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.7568174875309397,
+      "accuracy_std": 0.010371417570335047,
+      "precision": 0.528341074716522,
+      "precision_std": 0.013319957180928347,
+      "recall": 0.7925864038241889,
+      "recall_std": 0.00834345169356423,
+      "f1": 0.6338886897890157,
+      "f1_std": 0.00902123123496591,
+      "roc_auc": 0.8501811071463157,
+      "roc_auc_std": 0.006466759397736868,
+      "pr_auc": 0.6761726852640276,
+      "pr_auc_std": 0.009486271836151368,
+      "f2_at_best_threshold": 0.7501620220349967,
+      "best_threshold": 0.33999999999999997
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 0.7847750055509112,
+      "accuracy_std": 0.01157830308014262,
+      "precision": 0.5757561192992089,
+      "precision_std": 0.017918028682211005,
+      "recall": 0.7197427979186937,
+      "recall_std": 0.03146571081998217,
+      "f1": 0.6395408903395571,
+      "f1_std": 0.02087772557255898,
+      "roc_auc": 0.8489402665994079,
+      "roc_auc_std": 0.008838850221473276,
+      "pr_auc": 0.672683955702471,
+      "pr_auc_std": 0.018913445005476336,
+      "f2_at_best_threshold": 0.7479329852045257,
+      "best_threshold": 0.27999999999999997
+    },
+    {
+      "model": "XGBoost (default settings)",
+      "accuracy": 0.7873640399307962,
+      "accuracy_std": 0.010119745464982817,
+      "precision": 0.5827517915941934,
+      "precision_std": 0.016656961674883532,
+      "recall": 0.7015419433986209,
+      "recall_std": 0.02473603956310559,
+      "f1": 0.6365048913279143,
+      "f1_std": 0.017698931168087323,
+      "roc_auc": 0.8468028385144024,
+      "roc_auc_std": 0.007442823506263432,
+      "pr_auc": 0.6760793249578867,
+      "pr_auc_std": 0.02073752176218235,
+      "f2_at_best_threshold": 0.7430022695342051,
+      "best_threshold": 0.22999999999999998
+    },
+    {
+      "model": "XGBoost (raw features only)",
+      "accuracy": 0.7821870142952727,
+      "accuracy_std": 0.008071658361824819,
+      "precision": 0.5738658075641357,
+      "precision_std": 0.01347385159093936,
+      "recall": 0.6989445408012183,
+      "recall_std": 0.02091927783661523,
+      "f1": 0.630080465228095,
+      "f1_std": 0.013010981620804945,
+      "roc_auc": 0.8442526636307791,
+      "roc_auc_std": 0.007210088137026319,
+      "pr_auc": 0.6707309668757352,
+      "pr_auc_std": 0.02107141199578502,
+      "f2_at_best_threshold": 0.7447950203906417,
+      "best_threshold": 0.21999999999999997
+    }
+  ],
+  "improvements": [
+    "Logistic Regression versus Majority baseline: PR-AUC +0.411, ROC-AUC +0.350, recall +0.793, F2 at best threshold +0.750 (fold standard deviation of the reference PR-AUC: 0.000). This is a meaningful improvement.",
+    "Random Forest versus Majority baseline: PR-AUC +0.407, ROC-AUC +0.349, recall +0.720, F2 at best threshold +0.748 (fold standard deviation of the reference PR-AUC: 0.000). This is a meaningful improvement.",
+    "XGBoost (default settings) versus Majority baseline: PR-AUC +0.411, ROC-AUC +0.347, recall +0.702, F2 at best threshold +0.743 (fold standard deviation of the reference PR-AUC: 0.000). This is a meaningful improvement.",
+    "Random Forest versus Logistic Regression: PR-AUC -0.003, ROC-AUC -0.001, recall -0.073, F2 at best threshold -0.002 (fold standard deviation of the reference PR-AUC: 0.009). This is not a meaningful improvement.",
+    "XGBoost (default settings) versus Logistic Regression: PR-AUC -0.000, ROC-AUC -0.003, recall -0.091, F2 at best threshold -0.007 (fold standard deviation of the reference PR-AUC: 0.009). This is not a meaningful improvement.",
+    "Engineered features (XGBoost with them versus without them): PR-AUC +0.005, ROC-AUC +0.003, recall +0.003, F2 at best threshold -0.002 (fold standard deviation of the reference PR-AUC: 0.021). This is not a meaningful improvement."
+  ],
+  "tuning": {
+    "best_params": {
+      "colsample_bytree": 0.9868777594207296,
+      "gamma": 0.46554268086060846,
+      "learning_rate": 0.013118424770919554,
+      "max_depth": 4,
+      "min_child_weight": 7,
+      "n_estimators": 393,
+      "reg_lambda": 4.446862319918233,
+      "scale_pos_weight": 1.1161260317999944,
+      "subsample": 0.8430179407605753
+    },
+    "best_cv_pr_auc": 0.6797419256483688,
+    "n_iter": 5,
+    "search_space": {
+      "n_estimators": "integer 150 to 599",
+      "max_depth": "integer 2 to 6",
+      "learning_rate": "log-uniform 0.01 to 0.2",
+      "subsample": "uniform 0.6 to 1.0",
+      "colsample_bytree": "uniform 0.5 to 1.0",
+      "min_child_weight": "integer 1 to 9",
+      "gamma": "uniform 0.0 to 2.0",
+      "reg_lambda": "log-uniform 0.5 to 20",
+      "scale_pos_weight": "uniform 1.0 to 3.5 (class imbalance weight)"
+    }
+  },
+  "threshold": {
+    "value": 0.12,
+    "oof_f2": 0.7505399568034558,
+    "table": [
+      {
+        "threshold": 0.15,
+        "precision": 0.4787157287157287,
+        "recall": 0.8628088426527959,
+        "f1": 0.6157772621809745,
+        "f2": 0.7435006723442402,
+        "flagged_share": 0.4784259578874698
+      },
+      {
+        "threshold": 0.2,
+        "precision": 0.5171118530884808,
+        "recall": 0.805591677503251,
+        "f1": 0.6298932384341637,
+        "f2": 0.7247309312119794,
+        "flagged_share": 0.41353123921297896
+      },
+      {
+        "threshold": 0.25,
+        "precision": 0.5570534424650939,
+        "recall": 0.7522756827048115,
+        "f1": 0.6401106500691562,
+        "f2": 0.7030015797788309,
+        "flagged_share": 0.35847428374180185
+      },
+      {
+        "threshold": 0.3,
+        "precision": 0.585112205801861,
+        "recall": 0.6950585175552666,
+        "f1": 0.6353640416047548,
+        "f2": 0.6698834440406066,
+        "flagged_share": 0.31532619951674146
+      },
+      {
+        "threshold": 0.35,
+        "precision": 0.6157605375687233,
+        "recall": 0.6553966189856957,
+        "f1": 0.6349606299212598,
+        "f2": 0.6470663756579792,
+        "flagged_share": 0.28253365550569554
+      },
+      {
+        "threshold": 0.4,
+        "precision": 0.6380120886501007,
+        "recall": 0.6176853055916776,
+        "f1": 0.6276841757515692,
+        "f2": 0.6216463813636959,
+        "flagged_share": 0.2569899896444598
+      },
+      {
+        "threshold": 0.5,
+        "precision": 0.6754530477759473,
+        "recall": 0.5331599479843954,
+        "f1": 0.5959302325581395,
+        "f2": 0.5566114580505023,
+        "flagged_share": 0.20952709699689334
+      },
+      {
+        "threshold": 0.6,
+        "precision": 0.7182320441988951,
+        "recall": 0.4226267880364109,
+        "f1": 0.5321326238231683,
+        "f2": 0.4605356383732464,
+        "flagged_share": 0.15619606489471868
+      }
+    ]
+  },
+  "holdout": {
+    "threshold": 0.12,
+    "accuracy": 0.6825396825396826,
+    "precision": 0.45123537061118335,
+    "recall": 0.9012987012987013,
+    "f1": 0.6013864818024264,
+    "f2": 0.7514075357297532,
+    "roc_auc": 0.8446037984571818,
+    "pr_auc": 0.6441747534080929,
+    "brier": 0.1384533342843379,
+    "tn": 642,
+    "fp": 422,
+    "fn": 38,
+    "tp": 347,
+    "classification_report": {
+      "No churn": {
+        "precision": 0.9441176470588235,
+        "recall": 0.6033834586466166,
+        "f1-score": 0.7362385321100917,
+        "support": 1064.0
+      },
+      "Churn": {
+        "precision": 0.45123537061118335,
+        "recall": 0.9012987012987013,
+        "f1-score": 0.6013864818024264,
+        "support": 385.0
+      },
+      "accuracy": 0.6825396825396826,
+      "macro avg": {
+        "precision": 0.6976765088350034,
+        "recall": 0.7523410799726589,
+        "f1-score": 0.668812506956259,
+        "support": 1449.0
+      },
+      "weighted avg": {
+        "precision": 0.8131585880993056,
+        "recall": 0.6825396825396826,
+        "f1-score": 0.700408277197427,
+        "support": 1449.0
+      }
+    }
+  },
+  "baseline_holdout": {
+    "threshold": 0.5,
+    "accuracy": 0.7342995169082126,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "f2": 0.0,
+    "roc_auc": 0.5,
+    "pr_auc": 0.26570048309178745,
+    "brier": 0.26570048309178745,
+    "tn": 1064,
+    "fp": 0,
+    "fn": 385,
+    "tp": 0,
+    "classification_report": {
+      "No churn": {
+        "precision": 0.7342995169082126,
+        "recall": 1.0,
+        "f1-score": 0.8467966573816156,
+        "support": 1064.0
+      },
+      "Churn": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 385.0
+      },
+      "accuracy": 0.7342995169082126,
+      "macro avg": {
+        "precision": 0.3671497584541063,
+        "recall": 0.5,
+        "f1-score": 0.4233983286908078,
+        "support": 1449.0
+      },
+      "weighted avg": {
+        "precision": 0.5391957805316343,
+        "recall": 0.7342995169082126,
+        "f1-score": 0.6218023764348095,
+        "support": 1449.0
+      }
+    }
+  },
+  "calibration": {
+    "table": [
+      {
+        "customers": 145,
+        "mean_predicted": 0.054653681830504806,
+        "observed_rate": 0.013793103448275862,
+        "min_probability": 0.05373639932213941,
+        "max_probability": 0.05592432362086042,
+        "gap": 0.040860578382228945
+      },
+      {
+        "customers": 145,
+        "mean_predicted": 0.05832985805714923,
+        "observed_rate": 0.020689655172413793,
+        "min_probability": 0.05593999559203547,
+        "max_probability": 0.0611549792608274,
+        "gap": 0.037640202884735435
+      },
+      {
+        "customers": 145,
+        "mean_predicted": 0.06659028563138769,
+        "observed_rate": 0.041379310344827586,
+        "min_probability": 0.06119430611697036,
+        "max_probability": 0.0733308272918968,
+        "gap": 0.025210975286560106
+      },
+      {
+        "customers": 145,
+        "mean_predicted": 0.08192725306024647,
+        "observed_rate": 0.10344827586206896,
+        "min_probability": 0.07335963733079716,
+        "max_probability": 0.09364724616679101,
+        "gap": 0.021521022801822498
+      },
+      {
+        "customers": 145,
+        "mean_predicted": 0.11248111774544695,
+        "observed_rate": 0.1310344827586207,
+        "min_probability": 0.09365760672479073,
+        "max_probability": 0.1365060361817607,
+        "gap": 0.018553365013173756
+      },
+      {
+        "customers": 144,
+        "mean_predicted": 0.17423621450252066,
+        "observed_rate": 0.24305555555555555,
+        "min_probability": 0.1366364545113391,
+        "max_probability": 0.2223802028630238,
+        "gap": 0.06881934105303489
+      },
+      {
+        "customers": 145,
+        "mean_predicted": 0.2717652808206731,
+        "observed_rate": 0.33793103448275863,
+        "min_probability": 0.22253334957811172,
+        "max_probability": 0.33066304360933213,
+        "gap": 0.06616575366208555
+      },
+      {
+        "customers": 145,
+        "mean_predicted": 0.4057704111446748,
+        "observed_rate": 0.45517241379310347,
+        "min_probability": 0.33074552341670765,
+        "max_probability": 0.4888764439730898,
+        "gap": 0.049402002648428645
+      },
+      {
+        "customers": 145,
+        "mean_predicted": 0.5778647331867995,
+        "observed_rate": 0.5379310344827586,
+        "min_probability": 0.4923192992506629,
+        "max_probability": 0.6731971164466429,
+        "gap": 0.039933698704040954
+      },
+      {
+        "customers": 145,
+        "mean_predicted": 0.7952187891637836,
+        "observed_rate": 0.7724137931034483,
+        "min_probability": 0.6740368558937412,
+        "max_probability": 0.8991870954676788,
+        "gap": 0.02280499606033537
+      }
+    ],
+    "summary": {
+      "expected_calibration_error": 0.039070677329835504,
+      "max_bucket_gap": 0.06881934105303489
+    }
+  },
+  "error_analysis": {
+    "overall_fn_rate": 0.0987012987012987,
+    "overall_fp_rate": 0.3966165413533835,
+    "tables": {
+      "Contract": [
+        {
+          "segment": "Month-to-month",
+          "customers": 802,
+          "churners": 340,
+          "false_negatives": 14,
+          "fn_rate": 0.041176470588235294,
+          "non_churners": 462,
+          "false_positives": 363,
+          "fp_rate": 0.7857142857142857
+        },
+        {
+          "segment": "One year",
+          "customers": 294,
+          "churners": 34,
+          "false_negatives": 14,
+          "fn_rate": 0.4117647058823529,
+          "non_churners": 260,
+          "false_positives": 54,
+          "fp_rate": 0.2076923076923077
+        },
+        {
+          "segment": "Two year",
+          "customers": 353,
+          "churners": 11,
+          "false_negatives": 10,
+          "fn_rate": 0.9090909090909091,
+          "non_churners": 342,
+          "false_positives": 5,
+          "fp_rate": 0.014619883040935672
+        }
+      ],
+      "Tenure bucket": [
+        {
+          "segment": "0-12",
+          "customers": 436,
+          "churners": 195,
+          "false_negatives": 8,
+          "fn_rate": 0.041025641025641026,
+          "non_churners": 241,
+          "false_positives": 177,
+          "fp_rate": 0.7344398340248963
+        },
+        {
+          "segment": "13-24",
+          "customers": 233,
+          "churners": 81,
+          "false_negatives": 4,
+          "fn_rate": 0.04938271604938271,
+          "non_churners": 152,
+          "false_positives": 87,
+          "fp_rate": 0.5723684210526315
+        },
+        {
+          "segment": "25-48",
+          "customers": 321,
+          "churners": 73,
+          "false_negatives": 13,
+          "fn_rate": 0.1780821917808219,
+          "non_churners": 248,
+          "false_positives": 86,
+          "fp_rate": 0.3467741935483871
+        },
+        {
+          "segment": "49+",
+          "customers": 459,
+          "churners": 36,
+          "false_negatives": 13,
+          "fn_rate": 0.3611111111111111,
+          "non_churners": 423,
+          "false_positives": 72,
+          "fp_rate": 0.1702127659574468
+        }
+      ],
+      "Internet service": [
+        {
+          "segment": "DSL",
+          "customers": 495,
+          "churners": 93,
+          "false_negatives": 16,
+          "fn_rate": 0.17204301075268819,
+          "non_churners": 402,
+          "false_positives": 139,
+          "fp_rate": 0.34577114427860695
+        },
+        {
+          "segment": "Fiber optic",
+          "customers": 630,
+          "churners": 265,
+          "false_negatives": 9,
+          "fn_rate": 0.033962264150943396,
+          "non_churners": 365,
+          "false_positives": 249,
+          "fp_rate": 0.6821917808219178
+        },
+        {
+          "segment": "No",
+          "customers": 324,
+          "churners": 27,
+          "false_negatives": 13,
+          "fn_rate": 0.48148148148148145,
+          "non_churners": 297,
+          "false_positives": 34,
+          "fp_rate": 0.11447811447811448
+        }
+      ],
+      "Payment method": [
+        {
+          "segment": "Bank transfer (automatic)",
+          "customers": 325,
+          "churners": 64,
+          "false_negatives": 11,
+          "fn_rate": 0.171875,
+          "non_churners": 261,
+          "false_positives": 60,
+          "fp_rate": 0.22988505747126436
+        },
+        {
+          "segment": "Credit card (automatic)",
+          "customers": 308,
+          "churners": 49,
+          "false_negatives": 9,
+          "fn_rate": 0.1836734693877551,
+          "non_churners": 259,
+          "false_positives": 69,
+          "fp_rate": 0.26640926640926643
+        },
+        {
+          "segment": "Electronic check",
+          "customers": 491,
+          "churners": 218,
+          "false_negatives": 8,
+          "fn_rate": 0.03669724770642202,
+          "non_churners": 273,
+          "false_positives": 206,
+          "fp_rate": 0.7545787545787546
+        },
+        {
+          "segment": "Mailed check",
+          "customers": 325,
+          "churners": 54,
+          "false_negatives": 10,
+          "fn_rate": 0.18518518518518517,
+          "non_churners": 271,
+          "false_positives": 87,
+          "fp_rate": 0.3210332103321033
+        }
+      ]
+    },
+    "worst_false_negative_segment": {
+      "dimension": "Internet service",
+      "segment": "No",
+      "customers": 324,
+      "churners": 27,
+      "false_negatives": 13,
+      "fn_rate": 0.48148148148148145,
+      "non_churners": 297,
+      "false_positives": 34,
+      "fp_rate": 0.11447811447811448
+    },
+    "worst_false_positive_segment": {
+      "dimension": "Contract",
+      "segment": "Month-to-month",
+      "customers": 802,
+      "churners": 340,
+      "false_negatives": 14,
+      "fn_rate": 0.041176470588235294,
+      "non_churners": 462,
+      "false_positives": 363,
+      "fp_rate": 0.7857142857142857
+    },
+    "findings": [
+      "Systematic weakness (missed churners): in the segment Internet service = No the model misses 48.1% of churners (13 of 27), against 9.9% overall.",
+      "Systematic weakness (false alarms): in the segment Contract = Month-to-month 78.6% of loyal customers are flagged (363 of 462), against 39.7% overall."
+    ]
+  },
+  "importance": [
+    {
+      "feature": "Month-to-month contract",
+      "source": "contract_risk",
+      "mean_abs_contribution": 0.6031587719917297
+    },
+    {
+      "feature": "Monthly charges relative to tenure",
+      "source": "charges_per_tenure",
+      "mean_abs_contribution": 0.5631955862045288
+    },
+    {
+      "feature": "Online security",
+      "source": "OnlineSecurity",
+      "mean_abs_contribution": 0.19176383316516876
+    },
+    {
+      "feature": "Monthly charges",
+      "source": "MonthlyCharges",
+      "mean_abs_contribution": 0.17358078062534332
+    },
+    {
+      "feature": "Tech support",
+      "source": "TechSupport",
+      "mean_abs_contribution": 0.1639266014099121
+    },
+    {
+      "feature": "Internet service",
+      "source": "InternetService",
+      "mean_abs_contribution": 0.16327261924743652
+    },
+    {
+      "feature": "Contract type",
+      "source": "Contract",
+      "mean_abs_contribution": 0.1498623937368393
+    },
+    {
+      "feature": "Payment method",
+      "source": "PaymentMethod",
+      "mean_abs_contribution": 0.14322182536125183
+    },
+    {
+      "feature": "Paperless billing",
+      "source": "PaperlessBilling",
+      "mean_abs_contribution": 0.11903034150600433
+    },
+    {
+      "feature": "Multiple lines",
+      "source": "MultipleLines",
+      "mean_abs_contribution": 0.10419347882270813
+    },
+    {
+      "feature": "Online backup",
+      "source": "OnlineBackup",
+      "mean_abs_contribution": 0.061242297291755676
+    },
+    {
+      "feature": "Tenure",
+      "source": "tenure",
+      "mean_abs_contribution": 0.049654193222522736
+    },
+    {
+      "feature": "Total charges",
+      "source": "TotalCharges",
+      "mean_abs_contribution": 0.04528127610683441
+    },
+    {
+      "feature": "Senior citizen",
+      "source": "SeniorCitizen",
+      "mean_abs_contribution": 0.044427540153265
+    },
+    {
+      "feature": "Streaming movies",
+      "source": "StreamingMovies",
+      "mean_abs_contribution": 0.042933303862810135
+    },
+    {
+      "feature": "Has dependents",
+      "source": "Dependents",
+      "mean_abs_contribution": 0.028214260935783386
+    },
+    {
+      "feature": "Phone service",
+      "source": "PhoneService",
+      "mean_abs_contribution": 0.023737957701086998
+    },
+    {
+      "feature": "Gender",
+      "source": "gender",
+      "mean_abs_contribution": 0.015784811228513718
+    },
+    {
+      "feature": "Streaming TV",
+      "source": "StreamingTV",
+      "mean_abs_contribution": 0.015609798021614552
+    },
+    {
+      "feature": "Automatic payment",
+      "source": "auto_pay",
+      "mean_abs_contribution": 0.008057290688157082
+    },
+    {
+      "feature": "Number of subscribed services",
+      "source": "total_services",
+      "mean_abs_contribution": 0.007983087562024593
+    },
+    {
+      "feature": "Device protection",
+      "source": "DeviceProtection",
+      "mean_abs_contribution": 0.007495040073990822
+    },
+    {
+      "feature": "Has partner",
+      "source": "Partner",
+      "mean_abs_contribution": 0.0029210872016847134
+    },
+    {
+      "feature": "Tenure group (months)",
+      "source": "tenure_bucket",
+      "mean_abs_contribution": 0.0015678808558732271
+    },
+    {
+      "feature": "Online security plus tech support",
+      "source": "security_support",
+      "mean_abs_contribution": 0.0012149335816502571
+    }
+  ],
+  "local_examples": [
+    {
+      "case": "High-risk churner correctly flagged",
+      "actual_churn": "Yes",
+      "probability": 0.8992,
+      "predicted_label": "Yes",
+      "customer": {
+        "gender": "Male",
+        "Partner": "Yes",
+        "Dependents": "No",
+        "PhoneService": "Yes",
+        "MultipleLines": "Yes",
+        "InternetService": "Fiber optic",
+        "OnlineSecurity": "No",
+        "OnlineBackup": "No",
+        "DeviceProtection": "No",
+        "TechSupport": "No",
+        "StreamingTV": "Yes",
+        "StreamingMovies": "Yes",
+        "Contract": "Month-to-month",
+        "PaperlessBilling": "Yes",
+        "PaymentMethod": "Electronic check",
+        "SeniorCitizen": 1,
+        "tenure": 1,
+        "MonthlyCharges": 95.1,
+        "TotalCharges": 95.1
+      },
+      "drivers": [
+        {
+          "feature": "Monthly charges relative to tenure",
+          "value": "47.55",
+          "impact": 1.2668,
+          "direction": "increases risk",
+          "explanation": "Monthly charges relative to tenure (47.55) raises the predicted churn risk."
+        },
+        {
+          "feature": "Month-to-month contract",
+          "value": "yes",
+          "impact": 0.6477,
+          "direction": "increases risk",
+          "explanation": "Month-to-month contract (yes) raises the predicted churn risk."
+        },
+        {
+          "feature": "Internet service",
+          "value": "Fiber optic",
+          "impact": 0.1872,
+          "direction": "increases risk",
+          "explanation": "Internet service (Fiber optic) raises the predicted churn risk."
+        }
+      ],
+      "summary": "Monthly charges relative to tenure (47.55) raises the predicted churn risk. Month-to-month contract (yes) raises the predicted churn risk. Internet service (Fiber optic) raises the predicted churn risk."
+    },
+    {
+      "case": "Loyal customer correctly cleared",
+      "actual_churn": "No",
+      "probability": 0.0537,
+      "predicted_label": "No",
+      "customer": {
+        "gender": "Female",
+        "Partner": "Yes",
+        "Dependents": "Yes",
+        "PhoneService": "Yes",
+        "MultipleLines": "No",
+        "InternetService": "No",
+        "OnlineSecurity": "No internet service",
+        "OnlineBackup": "No internet service",
+        "DeviceProtection": "No internet service",
+        "TechSupport": "No internet service",
+        "StreamingTV": "No internet service",
+        "StreamingMovies": "No internet service",
+        "Contract": "Two year",
+        "PaperlessBilling": "No",
+        "PaymentMethod": "Bank transfer (automatic)",
+        "SeniorCitizen": 0,
+        "tenure": 72,
+        "MonthlyCharges": 19.55,
+        "TotalCharges": 1463.45
+      },
+      "drivers": [
+        {
+          "feature": "Monthly charges relative to tenure",
+          "value": "0.27",
+          "impact": -0.7783,
+          "direction": "decreases risk",
+          "explanation": "Monthly charges relative to tenure (0.27) lowers the predicted churn risk."
+        },
+        {
+          "feature": "Month-to-month contract",
+          "value": "no",
+          "impact": -0.757,
+          "direction": "decreases risk",
+          "explanation": "Month-to-month contract (no) lowers the predicted churn risk."
+        },
+        {
+          "feature": "Contract type",
+          "value": "Two year",
+          "impact": -0.4314,
+          "direction": "decreases risk",
+          "explanation": "Contract type (Two year) lowers the predicted churn risk."
+        }
+      ],
+      "summary": "Monthly charges relative to tenure (0.27) lowers the predicted churn risk. Month-to-month contract (no) lowers the predicted churn risk. Contract type (Two year) lowers the predicted churn risk."
+    },
+    {
+      "case": "Borderline customer close to the threshold",
+      "actual_churn": "No",
+      "probability": 0.1198,
+      "predicted_label": "No",
+      "customer": {
+        "gender": "Female",
+        "Partner": "No",
+        "Dependents": "No",
+        "PhoneService": "Yes",
+        "MultipleLines": "Yes",
+        "InternetService": "DSL",
+        "OnlineSecurity": "No",
+        "OnlineBackup": "No",
+        "DeviceProtection": "No",
+        "TechSupport": "No",
+        "StreamingTV": "No",
+        "StreamingMovies": "No",
+        "Contract": "Month-to-month",
+        "PaperlessBilling": "Yes",
+        "PaymentMethod": "Mailed check",
+        "SeniorCitizen": 0,
+        "tenure": 44,
+        "MonthlyCharges": 50.15,
+        "TotalCharges": 2139.1
+      },
+      "drivers": [
+        {
+          "feature": "Monthly charges relative to tenure",
+          "value": "1.11",
+          "impact": -0.865,
+          "direction": "decreases risk",
+          "explanation": "Monthly charges relative to tenure (1.11) lowers the predicted churn risk."
+        },
+        {
+          "feature": "Month-to-month contract",
+          "value": "yes",
+          "impact": 0.3981,
+          "direction": "increases risk",
+          "explanation": "Month-to-month contract (yes) raises the predicted churn risk."
+        },
+        {
+          "feature": "Internet service",
+          "value": "DSL",
+          "impact": -0.227,
+          "direction": "decreases risk",
+          "explanation": "Internet service (DSL) lowers the predicted churn risk."
+        }
+      ],
+      "summary": "Monthly charges relative to tenure (1.11) lowers the predicted churn risk. Month-to-month contract (yes) raises the predicted churn risk. Internet service (DSL) lowers the predicted churn risk."
+    },
+    {
+      "case": "Hard case: churner the model missed",
+      "actual_churn": "Yes",
+      "probability": 0.0543,
+      "predicted_label": "No",
+      "customer": {
+        "gender": "Female",
+        "Partner": "Yes",
+        "Dependents": "Yes",
+        "PhoneService": "Yes",
+        "MultipleLines": "Yes",
+        "InternetService": "No",
+        "OnlineSecurity": "No internet service",
+        "OnlineBackup": "No internet service",
+        "DeviceProtection": "No internet service",
+        "TechSupport": "No internet service",
+        "StreamingTV": "No internet service",
+        "StreamingMovies": "No internet service",
+        "Contract": "Two year",
+        "PaperlessBilling": "Yes",
+        "PaymentMethod": "Mailed check",
+        "SeniorCitizen": 0,
+        "tenure": 33,
+        "MonthlyCharges": 24.5,
+        "TotalCharges": 740.3
+      },
+      "drivers": [
+        {
+          "feature": "Monthly charges relative to tenure",
+          "value": "0.72",
+          "impact": -0.9303,
+          "direction": "decreases risk",
+          "explanation": "Monthly charges relative to tenure (0.72) lowers the predicted churn risk."
+        },
+        {
+          "feature": "Month-to-month contract",
+          "value": "no",
+          "impact": -0.7574,
+          "direction": "decreases risk",
+          "explanation": "Month-to-month contract (no) lowers the predicted churn risk."
+        },
+        {
+          "feature": "Contract type",
+          "value": "Two year",
+          "impact": -0.466,
+          "direction": "decreases risk",
+          "explanation": "Contract type (Two year) lowers the predicted churn risk."
+        }
+      ],
+      "summary": "Monthly charges relative to tenure (0.72) lowers the predicted churn risk. Month-to-month contract (no) lowers the predicted churn risk. Contract type (Two year) lowers the predicted churn risk."
+    }
+  ],
+  "versions": {
+    "python": "3.14.6",
+    "scikit-learn": "1.9.0",
+    "pandas": "3.0.3",
+    "numpy": "2.4.6",
+    "joblib": "1.5.3",
+    "xgboost": "3.4.1",
+    "shap": "0.54.1",
+    "skops": "0.16.0",
+    "mlflow": "3.17.2",
+    "lightgbm": "4.7.0"
+  }
+}

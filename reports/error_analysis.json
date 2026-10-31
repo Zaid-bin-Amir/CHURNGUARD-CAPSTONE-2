@@ -1,0 +1,180 @@
+{
+  "overall_fn_rate": 0.0987012987012987,
+  "overall_fp_rate": 0.3966165413533835,
+  "tables": {
+    "Contract": [
+      {
+        "segment": "Month-to-month",
+        "customers": 802,
+        "churners": 340,
+        "false_negatives": 14,
+        "fn_rate": 0.041176470588235294,
+        "non_churners": 462,
+        "false_positives": 363,
+        "fp_rate": 0.7857142857142857
+      },
+      {
+        "segment": "One year",
+        "customers": 294,
+        "churners": 34,
+        "false_negatives": 14,
+        "fn_rate": 0.4117647058823529,
+        "non_churners": 260,
+        "false_positives": 54,
+        "fp_rate": 0.2076923076923077
+      },
+      {
+        "segment": "Two year",
+        "customers": 353,
+        "churners": 11,
+        "false_negatives": 10,
+        "fn_rate": 0.9090909090909091,
+        "non_churners": 342,
+        "false_positives": 5,
+        "fp_rate": 0.014619883040935672
+      }
+    ],
+    "Tenure bucket": [
+      {
+        "segment": "0-12",
+        "customers": 436,
+        "churners": 195,
+        "false_negatives": 8,
+        "fn_rate": 0.041025641025641026,
+        "non_churners": 241,
+        "false_positives": 177,
+        "fp_rate": 0.7344398340248963
+      },
+      {
+        "segment": "13-24",
+        "customers": 233,
+        "churners": 81,
+        "false_negatives": 4,
+        "fn_rate": 0.04938271604938271,
+        "non_churners": 152,
+        "false_positives": 87,
+        "fp_rate": 0.5723684210526315
+      },
+      {
+        "segment": "25-48",
+        "customers": 321,
+        "churners": 73,
+        "false_negatives": 13,
+        "fn_rate": 0.1780821917808219,
+        "non_churners": 248,
+        "false_positives": 86,
+        "fp_rate": 0.3467741935483871
+      },
+      {
+        "segment": "49+",
+        "customers": 459,
+        "churners": 36,
+        "false_negatives": 13,
+        "fn_rate": 0.3611111111111111,
+        "non_churners": 423,
+        "false_positives": 72,
+        "fp_rate": 0.1702127659574468
+      }
+    ],
+    "Internet service": [
+      {
+        "segment": "DSL",
+        "customers": 495,
+        "churners": 93,
+        "false_negatives": 16,
+        "fn_rate": 0.17204301075268819,
+        "non_churners": 402,
+        "false_positives": 139,
+        "fp_rate": 0.34577114427860695
+      },
+      {
+        "segment": "Fiber optic",
+        "customers": 630,
+        "churners": 265,
+        "false_negatives": 9,
+        "fn_rate": 0.033962264150943396,
+        "non_churners": 365,
+        "false_positives": 249,
+        "fp_rate": 0.6821917808219178
+      },
+      {
+        "segment": "No",
+        "customers": 324,
+        "churners": 27,
+        "false_negatives": 13,
+        "fn_rate": 0.48148148148148145,
+        "non_churners": 297,
+        "false_positives": 34,
+        "fp_rate": 0.11447811447811448
+      }
+    ],
+    "Payment method": [
+      {
+        "segment": "Bank transfer (automatic)",
+        "customers": 325,
+        "churners": 64,
+        "false_negatives": 11,
+        "fn_rate": 0.171875,
+        "non_churners": 261,
+        "false_positives": 60,
+        "fp_rate": 0.22988505747126436
+      },
+      {
+        "segment": "Credit card (automatic)",
+        "customers": 308,
+        "churners": 49,
+        "false_negatives": 9,
+        "fn_rate": 0.1836734693877551,
+        "non_churners": 259,
+        "false_positives": 69,
+        "fp_rate": 0.26640926640926643
+      },
+      {
+        "segment": "Electronic check",
+        "customers": 491,
+        "churners": 218,
+        "false_negatives": 8,
+        "fn_rate": 0.03669724770642202,
+        "non_churners": 273,
+        "false_positives": 206,
+        "fp_rate": 0.7545787545787546
+      },
+      {
+        "segment": "Mailed check",
+        "customers": 325,
+        "churners": 54,
+        "false_negatives": 10,
+        "fn_rate": 0.18518518518518517,
+        "non_churners": 271,
+        "false_positives": 87,
+        "fp_rate": 0.3210332103321033
+      }
+    ]
+  },
+  "worst_false_negative_segment": {
+    "dimension": "Internet service",
+    "segment": "No",
+    "customers": 324,
+    "churners": 27,
+    "false_negatives": 13,
+    "fn_rate": 0.48148148148148145,
+    "non_churners": 297,
+    "false_positives": 34,
+    "fp_rate": 0.11447811447811448
+  },
+  "worst_false_positive_segment": {
+    "dimension": "Contract",
+    "segment": "Month-to-month",
+    "customers": 802,
+    "churners": 340,
+    "false_negatives": 14,
+    "fn_rate": 0.041176470588235294,
+    "non_churners": 462,
+    "false_positives": 363,
+    "fp_rate": 0.7857142857142857
+  },
+  "findings": [
+    "Systematic weakness (missed churners): in the segment Internet service = No the model misses 48.1% of churners (13 of 27), against 9.9% overall.",
+    "Systematic weakness (false alarms): in the segment Contract = Month-to-month 78.6% of loyal customers are flagged (363 of 462), against 39.7% overall."
+  ]
+}
